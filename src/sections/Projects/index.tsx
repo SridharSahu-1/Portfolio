@@ -19,8 +19,12 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="grid h-screen grid-cols-1 lg:grid-cols-2 gap-2"
+      className="grid h-screen grid-cols-1 lg:grid-cols-2 gap-2 relative"
     >
+      <GradientSphere
+        sphere1Class={"projects-gradient-sphere projects-sphere-1"}
+        sphere2Class={"projects-gradient-sphere projects-sphere-2"}
+      />
       <div className="flex flex-col justify-between h-full p-8 border-white/10 border-r pt-20">
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-lg overflow-auto h-full flex flex-col justify-between mb-2">
           <div>
@@ -64,14 +68,14 @@ const Projects = () => {
             className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
             aria-label="Previous project"
           >
-            <img src="images/CaretLeft.svg" />
+            <img src="images/arrowLeft.svg" />
           </div>
           <div
-             onClick={handleNext}
-             className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
-             aria-label="Next project"
+            onClick={handleNext}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+            aria-label="Next project"
           >
-            <img src="images/CaretRight.svg" />
+            <img src="images/arrowRight.svg" />
           </div>
           {/* <button
             onClick={handleNext}
