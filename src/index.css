@@ -86,117 +86,26 @@
     right: 300px;
     animation: wander-right 12s ease-in-out infinite;
   }
-  /* tech stack */
-  .about-gradient-sphere {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    filter: blur(200px);
-  }
-  .about-sphere-1 {
-    background: radial-gradient(circle, #ff28d5, #ff28d5);
-    bottom: 300px;
-    right: 150px;
-    animation: wander-left 10s ease-in-out infinite;
-  }
-  .about-sphere-2 {
-    background: radial-gradient(circle, #1c34ff, #1c34ff);
-    bottom: 100px;
-    right: 50px;
-  }
-  .tech-stack-gradient-left-box {
-    background: rgb(11, 6, 32);
-    background: linear-gradient(
-      90deg,
-      rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0.6601234243697479) 53%,
-      rgba(16, 11, 51, 0) 100%
-    );
-  }
-  .tech-stack-gradient-right-box {
-    background: rgb(11, 6, 32);
-    background: linear-gradient(
-      -90deg,
-      rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0.6601234243697479) 53%,
-      rgba(16, 11, 51, 0) 100%
-    );
-  }
-  /* marquee */
-  .marquee {
-    width: 100dvw;
-    overflow: hidden;
-    position: relative;
-  }
-  .marquee-box {
-    display: flex;
-    align-items: center;
-    width: 200%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-    animation: marquee 60s linear infinite;
-  }
-  .marquee-item {
-    float: left;
-  }
-  .marquee-item:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    bottom: -100%;
-    left: -100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(229, 172, 142, 0),
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(229, 172, 142, 0)
-    );
-  }
-  /*This activates the shine once the button has been hovered*/
-  .marquee-item:hover::after,
-  button:focus::after {
-    animation: shine 1s forwards;
-  }
-  /* projects */
+
   .projects-gradient-sphere {
+    opacity: 0.7;
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 40%;
+    height: 50%;
     border-radius: 50%;
-    filter: blur(150px);
-  }
-  .projects-sphere-1 {
-    background: radial-gradient(circle, #ff28d5, #ff28d5);
-    top: 300px;
-    left: 50px;
-  }
-  .projects-sphere-2 {
-    background: radial-gradient(circle, #1c34ff, #1c34ff);
-    top: 400px;
-    left: 150px;
-  }
-  /* carousel */
-  .carousel-gradient-left-box {
-    background: rgb(11, 6, 32);
-    background: linear-gradient(
-      90deg,
-      rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0) 100%,
-      rgba(11, 6, 32, 0) 100%
-    );
+    filter: blur(180px);
   }
 
-  .carousel-gradient-right-box {
-    background: rgb(11, 6, 32);
-    background: linear-gradient(
-      -90deg,
-      rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0) 100%,
-      rgba(11, 6, 32, 0) 100%
-    );
+  .projects-sphere-1 {
+    background: radial-gradient(circle, #7c1c69, #630650);
+    top: 10%;
+    left: 5%;
+  }
+
+  .projects-sphere-2 {
+    background: radial-gradient(circle, #0c1566, #0d187c);
+    bottom: 10%;
+    right: 10%;
   }
 
   /* nav-side-bar */
@@ -204,6 +113,23 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.01);
     background: rgba(23, 21, 31, 0.7);
     backdrop-filter: blur(10px);
+  }
+
+  .card-content {
+    padding: 20px;
+    color: white;
+    width: 250px;
+  }
+  .card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+  }
+  .card-content ul {
+    padding-left: 20px;
+  }
+  .card-content li {
+    margin-bottom: 8px;
+    font-size: 0.9em;
   }
 }
 
@@ -284,4 +210,3 @@ section {
     transform: rotateZ(60deg) translate(1em, -15em);
   }
 }
-

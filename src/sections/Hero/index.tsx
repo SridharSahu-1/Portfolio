@@ -12,10 +12,10 @@ const Hero = () => {
         <div className="container relative w-full h-full">
           <div className="md:mt-40 mt-20">
             <p className="font-medium md:text-2xl text-base">
-              <span className="inline-block">👋</span>
+              <span className="inline-block mr-[1ch]">👋</span>
               Hey, I'm
             </p>
-            <h1 className="font-bold md:text-9xl text-5xl">SRIDHAR SAHU</h1>
+            <h1 className="font-bold md:text-9xl text-5xl">SRIDHAR</h1>
           </div>
           <div className="absolute w-full z-30 bottom-20 right-0">
             <div className="flex justify-between items-end">
@@ -28,7 +28,7 @@ const Hero = () => {
                 />
               </div>
               <div className="flex flex-col items-end">
-                <img src="images/shape.svg" alt="shape" />
+                {/* <img src="images/shape.svg" alt="shape" /> */}
                 <h1 className="font-bold md:text-9xl text-5xl">DEVELOPER</h1>
               </div>
             </div>
