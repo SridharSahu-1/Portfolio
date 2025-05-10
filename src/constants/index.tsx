@@ -13,32 +13,25 @@ const projectsList = [
   {
     projectName: "Quora Clone",
     projectUrl: "https://quora-clone-six.vercel.app",
+    githubUrl: "https://github.com/SridharSahu-1/quora-clone",
     projectDescription: [
       "Developed a full-fledged clone of Quora, replicating key features such as asking questions, answering, voting, and image uploads. Added unique features like real-time notifications to enhance user interaction",
       "Utilized React for component rendering, Redux for state management, and Firebase for authentication and data storage. Overcame challenges in optimizing performance for large datasets and ensuring seamless user experience",
       "This project solidified skills in building responsive web applications and integrating frontend frameworks with backend services, demonstrating creativity and technical proficiency",
     ],
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    tags: ["HTML", "CSS", "React", "Redux", "Firebase"],
   },
   {
     projectName: "Myntra Clone",
     projectUrl: "https://myntra-project-psi.vercel.app",
+    githubUrl: "https://github.com/SridharSahu-1/MyntraProject",
     projectDescription: [
-      "Developed a full-fledged clone of Myntra user interaction",
-      "Utilized for large datasets and ensuring seamless user experience",
-      "This integrating frontend frameworks with backend services, demonstrating creativity and technical proficiency",
+      "Developed a fully functional e-commerce website clone of Myntra using React.js",
+      "The site allows users to browse products by various filters, add/remove from cart and view items under different categories, replicating the key features of the original platform",
+      "Firebase was integrated to handle the backend operations like user authentication, product and cart data storage",
+      "This project helped strengthen skills in frontend frameworks, database integration and building responsive web applications",
     ],
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    projectName: "Candy Crush",
-    projectUrl: "https://fly-realty.vercel.app",
-    projectDescription: [
-      "Developed a full-fledged clone of Myntra user interaction",
-      "Utilized for large datasets and ensuring seamless user experience",
-      "This integrating frontend frameworks with backend services, demonstrating creativity and technical proficiency",
-    ],
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    tags: ["HTML", "CSS", "React", "Firebase"],
   },
 ];
 
@@ -67,5 +60,11 @@ const experiences = [
     ],
   },
 ];
+
+const links = {
+  LinkedIn: "",
+  Github: "https://github.com/SridharSahu-1",
+  Leetcode: "",
+};
 
 export { navItems, projectsList, experiences };

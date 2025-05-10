@@ -52,7 +52,6 @@ const Model = (props) => {
             geometry={nodes["Cube008_1"].geometry}
           />
           <mesh geometry={nodes["Cube008_2"].geometry}>
-            {/* Drei's HTML component can "hide behind" canvas geometry */}
             <Html
               className="w-[334px] h-[216px] bg-[#f0f0f0] overflow-hidden p-0"
               rotation-x={-Math.PI / 2}
