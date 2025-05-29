@@ -239,12 +239,12 @@
 
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import { Briefcase, Calendar, Star, Award } from "lucide-react";
+import { Calendar, Star, Award, Briefcase } from "lucide-react";
 import { experiences } from "../../constants";
 
 export default function ExperienceCards() {
   return (
-    <section className="min-h-screen py-20 text-white relative overflow-hidden">
+    <section className="min-h-dvh py-4 text-white relative overflow-hidden">
       {/* Floating background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-20 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -260,7 +260,7 @@ export default function ExperienceCards() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -270,7 +270,21 @@ export default function ExperienceCards() {
           <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 leading-tight">
             Work Experience
           </h2>
-        </motion.div>
+        </motion.div> */}
+        <div className="w-full flex justify-center items-center">
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center text-center place-items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-6"
+          >
+            <Briefcase size={24} className="text-purple-300" />
+            <span className="text-purple-200 font-medium text-2xl">
+              Work Experience
+            </span>
+          </motion.div>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {experiences.map((exp, i) => (
             <motion.div
@@ -288,8 +302,8 @@ export default function ExperienceCards() {
             >
               <Tilt
                 glareEnable={true}
-                glareMaxOpacity={0.3}
-                glareColor="white"
+                glareMaxOpacity={0.2}
+                glareColor="pink"
                 glarePosition="all"
                 glareBorderRadius="32px"
                 tiltMaxAngleX={8}
@@ -298,18 +312,18 @@ export default function ExperienceCards() {
               >
                 <div className="relative h-full min-h-[500px] p-8 rounded-[32px] bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 hover:border-purple-400/60 transition-all duration-500 group overflow-hidden shadow-2xl">
                   {/* Animated background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[32px]"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[32px]" />
                   {/* Floating particles effect */}
                   <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full animate-ping"></div>
-                    <div className="absolute top-12 right-8 w-1 h-1 bg-pink-400 rounded-full animate-pulse delay-300"></div>
-                    <div className="absolute top-8 right-12 w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce delay-500"></div>
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full animate-ping" />
+                    <div className="absolute top-12 right-6 w-1 h-1 bg-pink-400 rounded-full animate-pulse delay-300" />
+                    <div className="absolute top-8 right-12 w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce delay-500" />
                   </div>
                   {/* Company header with icon */}
                   <div className="relative z-10 mb-2">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-4">
-                        <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
                           <Award size={24} className="text-white" />
                         </div>
                         <div className="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30">
@@ -322,7 +336,7 @@ export default function ExperienceCards() {
                           </span>
                         </div>
                       </div>
-                      <div className="w-8 h-8 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                      <div className="w-2 h-2 lg:w-8 lg:h-8 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50" />
                     </div>
                     <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors duration-300 leading-tight">
                       {exp.company}
@@ -343,7 +357,7 @@ export default function ExperienceCards() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.3 + idx * 0.15 }}
-                        className="group/bullet hover:bg-white/5 p-3 rounded-xl transition-all duration-300"
+                        className="group/bullet hover:bg-white/25 p-3 rounded-xl transition-all duration-300"
                       >
                         <div className="flex items-start space-x-4">
                           <div className="mt-2 w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex-shrink-0 group-hover/bullet:scale-150 group-hover/bullet:shadow-lg group-hover/bullet:shadow-purple-400/50 transition-all duration-300"></div>
@@ -355,10 +369,10 @@ export default function ExperienceCards() {
                     ))}
                   </div>
                   {/* Bottom decoration */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-b-[32px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-b-[32px] opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* Corner glow effects */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-500/20 to-transparent rounded-tr-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/20 to-transparent rounded-bl-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-500/20 to-transparent rounded-tr-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-500/20 to-transparent rounded-bl-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </Tilt>
             </motion.div>
@@ -372,7 +386,7 @@ export default function ExperienceCards() {
           transition={{ delay: 1, duration: 1 }}
           className="flex justify-center mt-20"
         >
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-xl shadow-purple-500/50"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-xl shadow-purple-500/50" />
         </motion.div>
       </div>
     </section>

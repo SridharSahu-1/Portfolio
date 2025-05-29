@@ -40,7 +40,7 @@ const experiences = [
     company: "HouseKraft (Part of Modern Spaces)",
     location: "Bangalore, India",
     role: "Frontend Developer",
-    period: "January 2025 -- Present",
+    period: "January 2025 - Present",
     bullets: [
       "Led the frontend development of a Customer Portal using React and TypeScript, delivering a scalable, high-performance application tailored to modern user expectations.",
       "Developed a Customer Portal integrating machine learning APIs to analyze floor plans, extracting key area details and providing personalized quotations.",
@@ -52,7 +52,7 @@ const experiences = [
     company: "Fly Realty (Part of Modern Spaces)",
     location: "Bangalore, India",
     role: "Frontend Developer",
-    period: "December 2023 -- January 2025",
+    period: "December 2023 - January 2025",
     bullets: [
       "Created a Lead Management System using React and Redux, automating lead tracking and assignment with robust role-based access control (RBAC). Reduced manual errors by 50% and improved data security.",
       "Architected a CMS that empowered the team to onboard builders and manage project profiles seamlessly. Reduced onboarding time by 40% and improved data consistency.",
