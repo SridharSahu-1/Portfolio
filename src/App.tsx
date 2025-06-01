@@ -1,5 +1,6 @@
 import NavBar from "./components/Navbar";
 import SideBar from "./components/Sidebar";
+import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Hero from "./sections/Hero";
 import Projects from "./sections/Projects";
@@ -10,9 +11,9 @@ function App() {
       <NavBar />
       <SideBar />
       <Hero />
-      {/* <About /> */}
       <Projects />
       <Experience />
+      <Contact />
     </div>
   );
 }

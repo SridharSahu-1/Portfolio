@@ -32,7 +32,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="grid h-dvh grid-cols-1 lg:grid-cols-2 gap-2 relative"
+      className="grid min-h-dvh grid-cols-1 lg:grid-cols-2 gap-2 border-b border-white/10"
     >
       <GradientSphere
         sphere1Class={"projects-gradient-sphere projects-sphere-1"}
