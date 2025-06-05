@@ -1,12 +1,9 @@
 const navItems = [
-  {
-    name: "Home",
-    href: "#home",
-  },
-  {
-    name: "Projects",
-    href: "#projects",
-  },
+  { name: "Home", href: "#home" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Now", href: "#now" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const projectsList = [
@@ -67,4 +64,4 @@ const links = {
   Leetcode: "",
 };
 
-export { navItems, projectsList, experiences };
+export { navItems, projectsList, experiences, links };

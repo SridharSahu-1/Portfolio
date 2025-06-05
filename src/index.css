@@ -131,6 +131,60 @@
     margin-bottom: 8px;
     font-size: 0.9em;
   }
+
+  /* Now section gradient spheres */
+  .now-gradient-sphere {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(120px);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .now-sphere-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #f97316, #dc2626);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .now-sphere-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 10s;
+  }
+
+  /* Contact section gradient spheres */
+  .contact-gradient-sphere {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(120px);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .contact-sphere-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .contact-sphere-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 10s;
+  }
 }
 
 @layer utilities {
@@ -141,7 +195,7 @@
 
 @layer utilities {
   .animate-spin-slow {
-    animation: spin 8s linear infinite;
+    animation: spin 3s linear infinite;
   }
 }
 
@@ -214,5 +268,18 @@ section {
 @keyframes shine {
   100% {
     transform: rotateZ(60deg) translate(1em, -15em);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
   }
 }

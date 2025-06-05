@@ -62,10 +62,10 @@ const Contact = () => {
 
       {/* Geometric decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-20 w-16 h-16 border-2 border-purple-400/30 rotate-45 animate-spin"></div>
+        <div className="absolute top-1/4 left-20 w-16 h-16 border-2 border-purple-400/30 rotate-45 animate-spin-slow"></div>
         <div className="absolute top-3/4 right-16 w-12 h-12 border-2 border-pink-400/30 rotate-12 animate-bounce"></div>
         <div className="absolute top-1/2 right-1/4 w-20 h-20 border border-cyan-400/20 rounded-full animate-ping"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-8 h-8 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full animate-pulse"></div>
+        {/* <div className="absolute bottom-1/4 left-1/2 w-8 h-8 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full animate-pulse"></div> */}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
