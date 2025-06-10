@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
 import GradientSphere from "../../components/GradientSphere";
 import ContactForm from "../../components/ContactForm";
 import ContactCard from "../../components/ContactCard";
@@ -46,14 +46,15 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen relative text-white overflow-hidden py-4"
+      className="min-h-screen relative text-white overflow-hidden py-8 px-4 sm:px-6 lg:px-8"
     >
+      {/* Gradient spheres, hidden on small screens */}
       <GradientSphere
         sphere1Class={"contact-gradient-sphere contact-sphere-1"}
         sphere2Class={"contact-gradient-sphere contact-sphere-2"}
       />
 
-      {/* Floating background elements */}
+      {/* Floating background elements, only visible md+ */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl animate-pulse"></div>
         <div className="absolute top-60 right-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-bounce"></div>
@@ -68,45 +69,34 @@ const Contact = () => {
         {/* <div className="absolute bottom-1/4 left-1/2 w-8 h-8 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full animate-pulse"></div> */}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-4xl md:max-w-7xl md:px-6 mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+          className="text-center mb-12"
         >
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-6"
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 mb-4"
           >
-            <Send size={20} className="text-purple-300" />
-            <span className="text-purple-200 font-medium text-2xl">
+            <Send size={18} className="text-purple-300" />
+            <span className="text-purple-200 font-medium text-xl sm:text-2xl">
               Get In Touch
             </span>
           </motion.div>
-
-          {/* <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400">
-              Let's Work Together
-            </span>
-          </h2>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-400">
-             Together
-            </span>
-          </h2> */}
 
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            transition={{ delay: 0.5 }}
+            className="text-base sm:text-lg text-gray-300 max-w-xl mx-auto leading-relaxed"
           >
             Ready to bring your ideas to life? Let's discuss your next project
             and create something amazing together.
@@ -114,10 +104,10 @@ const Contact = () => {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -127,45 +117,34 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Methods */}
-          <div className="p-8 order-1 lg:order-2 space-y-6 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 hover:border-purple-400/60 transition-all duration-500">
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className=""
-            >
-              <div className="mb-8">
-                {/* <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                Reach Out
-              </h3> */}
-                <p className="text-gray-300 leading-relaxed">
-                  Choose your preferred way to connect. I'm always excited to
-                  discuss new opportunities and interesting projects.
-                </p>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="order-1 lg:order-2 p-6 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 hover:border-purple-400/60 transition-all duration-500"
+          >
+            <p className="text-sm sm:text-base text-gray-300 mb-6 leading-relaxed">
+              Choose your preferred way to connect. I'm always excited to
+              discuss new opportunities and interesting projects.
+            </p>
 
-              <div className="grid gap-4">
-                {contactMethods.map((method, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                    onHoverStart={() => setHoveredCard(index)}
-                    onHoverEnd={() => setHoveredCard(null)}
-                  >
-                    <ContactCard
-                      {...method}
-                      isHovered={hoveredCard === index}
-                    />
-                  </motion.div>
-                ))}
-              </div>
-
-            </motion.div>
-          </div>
+            <div className="grid grid-cols-1 gap-4">
+              {contactMethods.map((method, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  onHoverStart={() => setHoveredCard(index)}
+                  onHoverEnd={() => setHoveredCard(null)}
+                >
+                  <ContactCard {...method} isHovered={hoveredCard === index} />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Bottom decoration */}
@@ -173,10 +152,10 @@ const Contact = () => {
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="flex justify-center mt-20"
+          transition={{ delay: 1.0, duration: 0.8 }}
+          className="flex justify-center mt-12 lg:mt-16"
         >
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 rounded-full shadow-xl shadow-purple-500/50" />
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 rounded-full shadow-lg shadow-purple-500/50" />
         </motion.div>
       </div>
     </section>

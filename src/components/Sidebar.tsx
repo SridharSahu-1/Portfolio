@@ -45,19 +45,19 @@ const SideBar = () => {
       <div className="fixed z-[100] top-7 right-5" onClick={toggleSideBar}>
         <img src="images/menu-icon.png" alt="menu" />
       </div>
-      <div className="fixed z-[100] -translate-x-[100%] right-0 w-1/2 h-dvh side-bar-bg">
+      <div className="fixed !z-[1000000] -translate-x-[100%] right-0 w-1/2 h-dvh side-bar-bg overflow-scroll rounded-l-xl">
         <div className="flex justify-end m-5" onClick={toggleSideBar}>
           <img src="images/x.png" alt="close" />
         </div>
-        <div className="mt-20 px-10">
-          <div className="flex flex-col items-center gap-20">
+        <div className="mt-7 px-10">
+          <div className="flex flex-col items-center gap-6">
             {navItems.map((item, index) => (
               <div
                 key={index}
                 className="side-bar-item opacity-0 cursor-pointer hover:underline transition-all duration-700"
               >
                 <a
-                  className="gradient-title text-2xl font-bold"
+                  className="gradient-title text-xl font-bold"
                   href={item.href}
                   onClick={toggleSideBar}
                 >

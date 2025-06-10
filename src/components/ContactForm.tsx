@@ -169,7 +169,7 @@ const ContactForm = () => {
                 onFocus={() => setFocusedField("message")}
                 onBlur={() => setFocusedField(null)}
                 required
-                rows={5}
+                rows={10}
                 className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm resize-none"
                 placeholder="Message for me..."
               />
