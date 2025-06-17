@@ -185,6 +185,73 @@
     right: 10%;
     animation-delay: 10s;
   }
+
+  .nav-item {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .nav-item a {
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  .nav-item:hover a {
+    color: var(--color-primary);
+  }
+
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: rgba(255, 0, 0, 0.5); /* use your color */
+    filter: blur(4px);
+    border-radius: 9999px;
+    /* opacity: 100; */
+    transition: width 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-item.active::after {
+    width: 30%;
+    opacity: 1;
+  }
+
+  .nav-item:hover::after {
+    width: 30%;
+    opacity: 1;
+  }
+
+  .nav-item.active a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .glow-border {
+    @apply relative border-[4px] border-transparent rounded-md;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px; /* thickness of glow */
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 0, 0, 255) 50%,
+      transparent 100%
+    );
+    filter: blur(1px);
+    pointer-events: none;
+    z-index: 1;
+  }
 }
 
 @layer utilities {

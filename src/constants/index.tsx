@@ -64,4 +64,22 @@ const links = {
   Leetcode: "",
 };
 
-export { navItems, projectsList, experiences, links };
+const techStack = [
+  { name: "React", icon: "⚛️", category: "Frontend" },
+  { name: "JavaScript", icon: "🟨", category: "Frontend" },
+  { name: "TypeScript", icon: "🔷", category: "Frontend" },
+  { name: "Tailwind CSS", icon: "🎯", category: "Frontend" },
+  { name: "Three.js", icon: "🎲", category: "Frontend" },
+  { name: "Framer Motion", icon: "🎭", category: "Frontend" },
+  { name: "Java", icon: "☕", category: "Backend" },
+  { name: "Spring Boot", icon: "🍃", category: "Backend" },
+  { name: "Node.js", icon: "🟢", category: "Backend" },
+  { name: "MongoDB", icon: "🍃", category: "Database" },
+  { name: "MySQL", icon: "🐬", category: "Database" },
+  { name: "Git", icon: "📦", category: "Tools" },
+  { name: "Docker", icon: "🐳", category: "Tools" },
+  { name: "AWS", icon: "☁️", category: "Tools" },
+  { name: "Figma", icon: "🎨", category: "Tools" },
+];
+
+export { navItems, projectsList, experiences, links, techStack };

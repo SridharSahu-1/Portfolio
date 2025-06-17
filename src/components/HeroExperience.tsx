@@ -1,4 +1,4 @@
-import { Sparkles } from "@react-three/drei";
+import { Sparkles, Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import HeroBoy from "./HeroBoy";
 

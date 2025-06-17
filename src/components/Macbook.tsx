@@ -47,6 +47,7 @@ const Model = (props) => {
               position={[0, 0.05, -0.09]}
               transform
               occlude
+              style={{ zIndex: 0 }}
             >
               <div
                 className="w-[668px] h-[438px] scale-50 origin-top-left"
