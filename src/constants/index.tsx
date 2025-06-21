@@ -1,7 +1,10 @@
+import { Code, Database, Cloud, TestTube, Zap, Computer } from "lucide-react";
+
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
   { name: "Now", href: "#now" },
   { name: "Contact", href: "#contact" },
 ];
@@ -64,22 +67,94 @@ const links = {
   Leetcode: "",
 };
 
-const techStack = [
-  { name: "React", icon: "⚛️", category: "Frontend" },
-  { name: "JavaScript", icon: "🟨", category: "Frontend" },
-  { name: "TypeScript", icon: "🔷", category: "Frontend" },
-  { name: "Tailwind CSS", icon: "🎯", category: "Frontend" },
-  { name: "Three.js", icon: "🎲", category: "Frontend" },
-  { name: "Framer Motion", icon: "🎭", category: "Frontend" },
-  { name: "Java", icon: "☕", category: "Backend" },
-  { name: "Spring Boot", icon: "🍃", category: "Backend" },
-  { name: "Node.js", icon: "🟢", category: "Backend" },
-  { name: "MongoDB", icon: "🍃", category: "Database" },
-  { name: "MySQL", icon: "🐬", category: "Database" },
-  { name: "Git", icon: "📦", category: "Tools" },
-  { name: "Docker", icon: "🐳", category: "Tools" },
-  { name: "AWS", icon: "☁️", category: "Tools" },
-  { name: "Figma", icon: "🎨", category: "Tools" },
+// const techStack = [
+//   { name: "React", icon: "⚛️", category: "Frontend" },
+//   { name: "JavaScript", icon: "🟨", category: "Frontend" },
+//   { name: "TypeScript", icon: "🔷", category: "Frontend" },
+//   { name: "Tailwind CSS", icon: "🎯", category: "Frontend" },
+//   { name: "Three.js", icon: "🎲", category: "Frontend" },
+//   { name: "Framer Motion", icon: "🎭", category: "Frontend" },
+//   { name: "Java", icon: "☕", category: "Backend" },
+//   { name: "Spring Boot", icon: "🍃", category: "Backend" },
+//   { name: "Node.js", icon: "🟢", category: "Backend" },
+//   { name: "MongoDB", icon: "🍃", category: "Database" },
+//   { name: "MySQL", icon: "🐬", category: "Database" },
+//   { name: "Git", icon: "📦", category: "Tools" },
+//   { name: "Docker", icon: "🐳", category: "Tools" },
+//   { name: "AWS", icon: "☁️", category: "Tools" },
+//   { name: "Figma", icon: "🎨", category: "Tools" },
+// ];
+
+const techStacks = [
+  {
+    category: "Frontend",
+    icon: Code,
+    color: "from-purple-500 to-pink-500",
+    gradient: "from-purple-500/20 to-pink-500/20",
+    borderColor: "border-purple-400/30",
+    technologies: [
+      { name: "HTML", level: 95 },
+      { name: "CSS", level: 90 },
+      { name: "Tailwind CSS", level: 92 },
+      { name: "Bootstrap", level: 85 },
+      { name: "JavaScript", level: 88 },
+      { name: "TypeScript", level: 82 },
+      { name: "React", level: 90 },
+      { name: "Redux", level: 78 },
+      { name: "Redux Saga", level: 70 },
+      { name: "Next.js", level: 75 },
+    ],
+  },
+  {
+    category: "Backend",
+    icon: Database,
+    color: "from-green-500 to-emerald-500",
+    gradient: "from-green-500/20 to-emerald-500/20",
+    borderColor: "border-green-400/30",
+    technologies: [
+      { name: "Node.js", level: 85 },
+      { name: "Express.js", level: 82 },
+      { name: "MongoDB", level: 78 },
+      { name: "Spring Boot", level: 75 },
+      { name: "RESTful APIs", level: 88 },
+    ],
+  },
+  {
+    category: "Cloud & DevOps",
+    icon: Cloud,
+    color: "from-blue-500 to-cyan-500",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    borderColor: "border-blue-400/30",
+    technologies: [
+      { name: "AWS S3", level: 70 },
+      { name: "CloudFront", level: 65 },
+      { name: "Route 53", level: 60 },
+      { name: "Git", level: 90 },
+      { name: "Docker", level: 55 },
+    ],
+  },
+  {
+    category: "Testing & Tools",
+    icon: TestTube,
+    color: "from-orange-500 to-red-500",
+    gradient: "from-orange-500/20 to-red-500/20",
+    borderColor: "border-orange-400/30",
+    technologies: [
+      { name: "Chrome DevTools", level: 85 },
+      { name: "Postman", level: 88 },
+    ],
+  },
+  {
+    category: "Coding Language",
+    icon: Computer,
+    color: "from-red-500 to-gray-400",
+    gradient: "from-red-500/20 to-black-500/20",
+    borderColor: "border-red-400/30",
+    technologies: [
+      { name: "Java", level: 85 },
+      { name: "Python", level: 40 },
+    ],
+  },
 ];
 
-export { navItems, projectsList, experiences, links, techStack };
+export { navItems, projectsList, experiences, links, techStacks };

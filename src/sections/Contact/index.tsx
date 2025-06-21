@@ -48,29 +48,24 @@ const Contact = () => {
       id="contact"
       className="min-h-screen relative text-white overflow-hidden py-8 px-4 sm:px-6 lg:px-8"
     >
-      {/* Gradient spheres, hidden on small screens */}
       <GradientSphere
         sphere1Class={"contact-gradient-sphere contact-sphere-1"}
         sphere2Class={"contact-gradient-sphere contact-sphere-2"}
       />
-
-      {/* Floating background elements, only visible md+ */}
+ 
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-2xl animate-pulse"></div>
         <div className="absolute top-60 right-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-bounce"></div>
         <div className="absolute bottom-32 left-1/3 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl animate-pulse delay-1000"></div>
       </div>
 
-      {/* Geometric decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-20 w-16 h-16 border-2 border-purple-400/30 rotate-45 animate-spin-slow"></div>
         <div className="absolute top-3/4 right-16 w-12 h-12 border-2 border-pink-400/30 rotate-12 animate-bounce"></div>
         <div className="absolute top-1/2 right-1/4 w-20 h-20 border border-cyan-400/20 rounded-full animate-ping"></div>
-        {/* <div className="absolute bottom-1/4 left-1/2 w-8 h-8 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-full animate-pulse"></div> */}
       </div>
 
       <div className="relative z-10 max-w-4xl md:max-w-7xl md:px-6 mx-auto">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,9 +98,7 @@ const Contact = () => {
           </motion.p>
         </motion.div>
 
-        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -116,7 +109,6 @@ const Contact = () => {
             <ContactForm />
           </motion.div>
 
-          {/* Contact Methods */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -147,7 +139,6 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        {/* Bottom decoration */}
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
