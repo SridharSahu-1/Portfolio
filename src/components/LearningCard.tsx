@@ -13,6 +13,7 @@ interface Skill {
   gradient: string;
   technologies: string[];
   currentFocus: string;
+  level: string;
 }
 
 interface LearningCardProps {
@@ -22,6 +23,7 @@ interface LearningCardProps {
 }
 
 const LearningCard = ({ skill, index, isHovered }: LearningCardProps) => {
+  // debugger;
   const Icon = skill.icon;
 
   return (
@@ -61,9 +63,9 @@ const LearningCard = ({ skill, index, isHovered }: LearningCardProps) => {
                 <div
                   className={`text-2xl font-bold bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`}
                 >
-                  {skill.progress}%
+                  {skill.level}
                 </div>
-                <div className="text-xs text-gray-400">Progress</div>
+                <div className="text-xs text-gray-400">Current Level</div>
               </div>
             </div>
 
@@ -80,6 +82,7 @@ const LearningCard = ({ skill, index, isHovered }: LearningCardProps) => {
             <SkillProgress
               name="Current Level"
               progress={skill.progress}
+              level={skill.level}
               color={skill.color}
               delay={index * 0.2}
             />
@@ -121,8 +124,8 @@ const LearningCard = ({ skill, index, isHovered }: LearningCardProps) => {
         </div>
 
         {/* Corner decorations */}
-        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-orange-500/20 to-transparent rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-0 right-0 w-[35%] h-24 bg-gradient-to-bl from-orange-500/20 to-transparent rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* <div className="absolute bottom-0 left-0 w-[30%] h-20 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
       </div>
     </Tilt>
   );

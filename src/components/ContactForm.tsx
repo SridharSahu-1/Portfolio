@@ -31,7 +31,7 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     setIsSubmitting(true);
 
     // Simulate form submission
@@ -85,7 +85,12 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6"
+          action="https://formsubmit.co/sridharsahu5555@gmail.com"
+          method="POST"
+        >
           {/* Name Field */}
           <div className="relative">
             <div className="relative">
@@ -196,11 +201,18 @@ const ContactForm = () => {
               </>
             )}
           </motion.button>
+          <input
+            type="hidden"
+            name="_subject"
+            value="Portfolio Contact - New Message"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="box" />
         </form>
 
         {/* Decorative elements */}
-        {/* <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full animate-ping" />
-        <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse" /> */}
+        <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full animate-ping" />
+        <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse" />
       </div>
     </motion.div>
   );
