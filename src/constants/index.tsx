@@ -1,10 +1,11 @@
-import { Code, Database, Cloud, TestTube, Zap, Computer } from "lucide-react";
+import { Code, Database, Cloud, TestTube, Computer } from "lucide-react";
+import { Mail, Phone, Linkedin, Github } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  // { name: "Skills", href: "#skills" },
+  { name: "Skills", href: "#skills" },
   { name: "Now", href: "#now" },
   { name: "Contact", href: "#contact" },
 ];
@@ -67,23 +68,40 @@ const links = {
   Leetcode: "",
 };
 
-// const techStack = [
-//   { name: "React", icon: "⚛️", category: "Frontend" },
-//   { name: "JavaScript", icon: "🟨", category: "Frontend" },
-//   { name: "TypeScript", icon: "🔷", category: "Frontend" },
-//   { name: "Tailwind CSS", icon: "🎯", category: "Frontend" },
-//   { name: "Three.js", icon: "🎲", category: "Frontend" },
-//   { name: "Framer Motion", icon: "🎭", category: "Frontend" },
-//   { name: "Java", icon: "☕", category: "Backend" },
-//   { name: "Spring Boot", icon: "🍃", category: "Backend" },
-//   { name: "Node.js", icon: "🟢", category: "Backend" },
-//   { name: "MongoDB", icon: "🍃", category: "Database" },
-//   { name: "MySQL", icon: "🐬", category: "Database" },
-//   { name: "Git", icon: "📦", category: "Tools" },
-//   { name: "Docker", icon: "🐳", category: "Tools" },
-//   { name: "AWS", icon: "☁️", category: "Tools" },
-//   { name: "Figma", icon: "🎨", category: "Tools" },
-// ];
+const contactMethods = [
+  {
+    icon: Mail,
+    title: "Email",
+    subtitle: "Send me an email",
+    value: "sridharsahu5555@gmail.com",
+    href: "mailto:sridharsahu5555@gmail.com",
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    subtitle: "Give me a call",
+    value: "+91-8917397964",
+    href: "tel:+918917397964",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    icon: Linkedin,
+    title: "LinkedIn",
+    subtitle: "Let's connect",
+    value: "linkedin.com/in/sridharsahu01/",
+    href: "https://www.linkedin.com/in/sridharsahu01/",
+    color: "from-blue-600 to-blue-400",
+  },
+  {
+    icon: Github,
+    title: "GitHub",
+    subtitle: "Check my code",
+    value: "github.com/SridharSahu-1",
+    href: "https://github.com/SridharSahu-1",
+    color: "from-gray-600 to-gray-400",
+  },
+];
 
 const techStacks = [
   {
@@ -157,4 +175,4 @@ const techStacks = [
   },
 ];
 
-export { navItems, projectsList, experiences, links, techStacks };
+export { navItems, projectsList, experiences, links, techStacks, contactMethods };

@@ -39,16 +39,6 @@ const Skills = () => {
             <span className="text-blue-200 font-medium text-2xl">Skills</span>
           </motion.div>
 
-          {/* <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400"
-          >
-            Skills & Technologies
-          </motion.h2> */}
-
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

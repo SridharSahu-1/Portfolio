@@ -34,12 +34,6 @@ const ContactCard = ({
           className={`absolute inset-0 bg-gradient-to-r ${color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}
         />
 
-        {/* <div className="absolute inset-0 overflow-hidden rounded-2xl">
-          <div className="absolute top-2 right-2 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-60" />
-          <div className="absolute top-4 right-6 w-0.5 h-0.5 bg-pink-400 rounded-full animate-pulse delay-300" />
-          <div className="absolute bottom-3 right-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce delay-500 opacity-40" />
-        </div> */}
-
         <div className="relative z-10 flex items-center space-x-4">
           <motion.div
             className={`w-14 h-14 bg-gradient-to-r ${color} rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-100`}

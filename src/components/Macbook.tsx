@@ -19,7 +19,7 @@ const Model = (props) => {
     return () => clearTimeout(timer);
   }, [props.projectUrl]);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (screenRef.current) {
       // Smooth opening animation
       const targetRotation = isOpen ? -0.425 : 1.5;
