@@ -1,44 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import GradientSphere from "../../components/GradientSphere";
 import ContactForm from "../../components/ContactForm";
 import ContactCard from "../../components/ContactCard";
-
-const contactMethods = [
-  {
-    icon: Mail,
-    title: "Email",
-    subtitle: "Send me an email",
-    value: "sridharsahu5555@gmail.com",
-    href: "mailto:sridharsahu5555@gmail.com",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    subtitle: "Give me a call",
-    value: "+91-8917397964",
-    href: "tel:+918917397964",
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    icon: Linkedin,
-    title: "LinkedIn",
-    subtitle: "Let's connect",
-    value: "linkedin.com/in/sridharsahu01/",
-    href: "https://www.linkedin.com/in/sridharsahu01/",
-    color: "from-blue-600 to-blue-400",
-  },
-  {
-    icon: Github,
-    title: "GitHub",
-    subtitle: "Check my code",
-    value: "github.com/SridharSahu-1",
-    href: "https://github.com/SridharSahu-1",
-    color: "from-gray-600 to-gray-400",
-  },
-];
+import { contactMethods } from "../../constants";
 
 const Contact = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);

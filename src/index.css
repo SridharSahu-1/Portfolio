@@ -281,12 +281,91 @@
   .animate-spin-slow {
     animation: spin-slow 8s linear infinite;
   }
+
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Perspective container */
+  .perspective-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  /* 3D rotation on hover */
+  .rotate-3d:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+    transition: transform 0.3s ease;
+  }
+
+  /* Glitch effect for hover */
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text:hover::before,
+  .glitch-text:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 3D Text Effects */
+  .hero-text-3d {
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+      2px 2px 0px rgba(255, 255, 255, 0.05), 3px 3px 0px rgba(0, 0, 0, 0.1),
+      4px 4px 0px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+  }
+
+  /* Gradient text effects */
+  .gradient-text {
+    background: linear-gradient(45deg, #60a5fa, #34d399, #fbbf24, #f87171);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+
+  .glitch-text:hover::before {
+    animation: glitch1 0.5s infinite;
+    color: #ff00ff;
+    z-index: -1;
+  }
+
+  .glitch-text:hover::after {
+    animation: glitch2 0.5s infinite;
+    color: #00ffff;
+    z-index: -2;
+  }
+
+  /* Pulse effect for elements */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
 }
 
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;
   }
+  
 }
 
 @layer utilities {
@@ -407,5 +486,73 @@ section {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glitch1 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch2 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+@keyframes pulseGlow {
+  from {
+    text-shadow: 0 0 5px rgba(96, 165, 250, 0.5);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(96, 165, 250, 0.8),
+      0 0 25px rgba(96, 165, 250, 0.6);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }

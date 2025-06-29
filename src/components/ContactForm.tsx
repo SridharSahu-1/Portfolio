@@ -141,21 +141,6 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* Subject Field */}
-          {/* <div className="relative">
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              onFocus={() => setFocusedField("subject")}
-              onBlur={() => setFocusedField(null)}
-              required
-              className="w-full px-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-              placeholder="Subject"
-            />
-          </div> */}
-
           {/* Message Field */}
           <div className="relative">
             <div className="relative">
