@@ -3,6 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
 import { useRef, useState } from "react";
 import * as THREE from "three";
+import { useMediaQuery } from "../hooks/useMobile";
 
 const HeroBoy = (props: unknown) => {
   const { nodes, materials } = useGLTF("models/3D-Model-transformed.glb");
@@ -10,46 +11,51 @@ const HeroBoy = (props: unknown) => {
   const mouse = useRef(new THREE.Vector2());
   const group = useRef(null);
 
-  const [isIntroAnimationComplete, setIsIntroAnimationComplete] =
-    useState(false);
+  const [introDone, setIntroDone] = useState(false);
+
+  // ← Use your hook to detect mobile (e.g. coarse pointers or narrow screens)
+  // You can tweak the query: here we treat any viewport ≤ 768px as “mobile”
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useGSAP(() => {
-    if (!isIntroAnimationComplete) {
+    // 1) initial spin‑in animation
+    if (!introDone) {
       gsap.fromTo(
         group.current.rotation,
-        {
-          y: Math.PI,
-        },
+        { y: Math.PI },
         {
           y: 0,
           delay: 0.5,
           duration: 1.5,
           ease: "expo.inOut",
-          onComplete: () => {
-            setIsIntroAnimationComplete(true);
-          },
+          onComplete: () => setIntroDone(true),
         }
       );
     }
 
-    if (isIntroAnimationComplete) {
-      const handleMouseMove = (event: unknown) => {
+    // 2) only attach desktop mouse‑tracking once intro has finished
+    if (introDone && !isMobile) {
+      const handleMouseMove = (event: MouseEvent) => {
         const { innerWidth, innerHeight } = window;
 
         mouse.current.x = (event.clientX / innerWidth) * 2 - 1;
         mouse.current.y = -(event.clientY / innerHeight) * 2 + 1;
 
-        const target = new THREE.Vector3(mouse.current.x, mouse.current.y, 1);
+        const target = new THREE.Vector3(
+          mouse.current.x,
+          mouse.current.y,
+          1
+        );
 
+        // Look at the target and tilt
         group.current.getObjectByName("Head")?.lookAt(target);
         group.current.rotation.y = target.x * 0.5;
       };
 
       window.addEventListener("mousemove", handleMouseMove);
-
       return () => window.removeEventListener("mousemove", handleMouseMove);
     }
-  }, [isIntroAnimationComplete]);
+  }, [introDone, isMobile]);
 
   return (
     <group {...props} ref={group} dispose={null}>
