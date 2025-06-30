@@ -1,32 +1,44 @@
 import { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows } from "@react-three/drei";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Model = (props) => {
   const group = useRef();
   const screenRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [iframeLoading, setIframeLoading] = useState(true);
 
   // Load model
   const { nodes, materials } = useGLTF("models/Mac.glb");
 
   useEffect(() => {
-    // Start opening animation after component mounts
-    const timer = setTimeout(() => {
+    // Close and reopen animation when projectUrl changes
+    setIsOpen(false);
+    setIsLoading(true);
+    setIframeLoading(true);
+
+    const reopenTimer = setTimeout(() => {
       setIsOpen(true);
-    }, 500);
-    return () => clearTimeout(timer);
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(reopenTimer);
   }, [props.projectUrl]);
 
   useFrame(() => {
     if (screenRef.current) {
-      // Smooth opening animation
+      // Smooth opening/closing animation
       const targetRotation = isOpen ? -0.425 : 1.5;
       screenRef.current.rotation.x +=
         (targetRotation - screenRef.current.rotation.x) * 0.1;
     }
   });
+
+  const handleIframeLoad = () => {
+    setIframeLoading(false);
+  };
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -42,38 +54,60 @@ const Model = (props) => {
           />
           <mesh geometry={nodes["Cube008_2"].geometry}>
             <Html
-              className="w-[334px] h-[216px] bg-[#f0f0f0] overflow-hidden p-0 rounded-lg"
+              className="w-[334px] h-[216px] bg-[#f0f0f0] overflow-hidden p-0"
               rotation-x={-Math.PI / 2}
-              position={[0, 0.05, -0.09]}
+              // position={[-0.3, 0.05, -0.09]}
+                position={[0, 0.05, -0.09]}
               transform
               occlude
               style={{ zIndex: 0 }}
             >
               <div
-                className="w-[668px] h-[438px] scale-50 origin-top-left"
+                className="w-[668px] h-[438px] scale-50 origin-top-left relative"
                 onPointerDown={(e) => e.stopPropagation()}
               >
-                {isOpen && (
+                <AnimatePresence mode="wait">
+                  {isOpen && !isLoading && (
+                    <motion.div
+                      key={props.projectUrl}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className="w-full h-full relative"
+                    >
+                      <iframe
+                        className="w-full h-full"
+                        src={props.projectUrl}
+                        title="Project Preview"
+                        onLoad={handleIframeLoad}
+                      />
+                      {iframeLoading && (
+                        <div className="absolute inset-0 bg-white flex items-center justify-center">
+                          <div className="text-gray-600 text-center">
+                            <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 animate-spin mx-auto mb-3"></div>
+                            <p className="text-xs">Loading content...</p>
+                          </div>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {(isLoading || !isOpen) && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                    className="w-full h-full"
+                    className="w-full h-full bg-black flex items-center justify-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <iframe
-                      className="w-full h-full rounded-lg"
-                      src={props.projectUrl}
-                      title="Project Preview"
-                    />
-                  </motion.div>
-                )}
-                {!isOpen && (
-                  <div className="w-full h-full bg-black flex items-center justify-center">
                     <div className="text-white text-center">
-                      <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                      <p className="text-sm">Opening...</p>
+                      <div className="w-16 h-16 border-4 border-white border-t-transparent animate-spin mx-auto mb-4"></div>
+                      <p className="text-sm">
+                        {isLoading ? "Loading..." : "Opening..."}
+                      </p>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </Html>
