@@ -5,8 +5,8 @@ import { FaReact, FaGithub } from "react-icons/fa";
 import { SiRedux, SiFirebase, SiHtml5, SiCss3 } from "react-icons/si";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { projectsList } from "../../constants";
-import Macbook from "../../components/Macbook";
 import Tooltip from "../../components/Tooltip";
+import Macbook from "../../components/Macbook";
 
 const iconMap = {
   React: <FaReact size={20} />,
