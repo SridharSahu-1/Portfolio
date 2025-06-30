@@ -5,8 +5,8 @@ import { FaReact, FaGithub } from "react-icons/fa";
 import { SiRedux, SiFirebase, SiHtml5, SiCss3 } from "react-icons/si";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { projectsList } from "../../constants";
-import Tooltip from "../../components/Tooltip";
 import Macbook from "../../components/Macbook";
+import ToolTip from "../../components/Tooltip";
 
 const iconMap = {
   React: <FaReact size={20} />,
@@ -134,7 +134,7 @@ export default function Projects() {
                         transition={{ delay: 1, duration: 0.3 }}
                         className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                       >
-                        <Tooltip content={tag} position="top" delay={0.3}>
+                        <ToolTip content={tag} position="top" delay={0.3}>
                           <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200">
                             {iconMap[tag] || (
                               <span className="text-indigo-200 text-sm">
@@ -142,7 +142,7 @@ export default function Projects() {
                               </span>
                             )}
                           </div>
-                        </Tooltip>
+                        </ToolTip>
                       </motion.div>
                     ))}
                   </div>
