@@ -6,7 +6,6 @@ import { SiRedux, SiFirebase, SiHtml5, SiCss3 } from "react-icons/si";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { projectsList } from "../../constants";
 import Macbook from "../../components/Macbook";
-import ToolTip from "../../components/Tooltip";
 
 const iconMap = {
   React: <FaReact size={20} />,
@@ -134,7 +133,14 @@ export default function Projects() {
                         transition={{ delay: 1, duration: 0.3 }}
                         className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                       >
-                        <ToolTip content={tag} position="top" delay={0.3}>
+                        <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200">
+                          {iconMap[tag] || (
+                            <span className="text-indigo-200 text-sm">
+                              {tag}
+                            </span>
+                          )}
+                        </div>
+                        {/* <ToolTip content={tag} position="top" delay={0.3}>
                           <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200">
                             {iconMap[tag] || (
                               <span className="text-indigo-200 text-sm">
@@ -142,7 +148,7 @@ export default function Projects() {
                               </span>
                             )}
                           </div>
-                        </ToolTip>
+                        </ToolTip> */}
                       </motion.div>
                     ))}
                   </div>
@@ -154,7 +160,23 @@ export default function Projects() {
                   transition={{ delay: 0.7, duration: 0.3 }}
                 >
                   <span>Links: </span>
-                  <Tooltip
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full hover:scale-110 transition-all duration-300"
+                  >
+                    {iconMap.Github}
+                  </a>
+                  <a
+                    href={project.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full hover:scale-110 transition-all duration-300"
+                  >
+                    {iconMap.ExternalLink}
+                  </a>
+                  {/* <Tooltip
                     content="View Source Code"
                     position="right"
                     delay={0.3}
@@ -181,7 +203,7 @@ export default function Projects() {
                     >
                       {iconMap.ExternalLink}
                     </a>
-                  </Tooltip>
+                  </Tooltip> */}
                 </motion.div>
               </motion.div>
             </AnimatePresence>
