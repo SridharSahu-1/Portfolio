@@ -226,7 +226,17 @@ export default function Projects() {
 
         {/* Navigation Controls */}
         <div className="flex items-center justify-center space-x-4 mt-6">
-          <Tooltip content="Previous Project" position="top" delay={0.2}>
+          <motion.button
+            onClick={handlePrev}
+            disabled={isTransitioning}
+            aria-label="Previous project"
+            className="p-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all duration-200 disabled:opacity-50"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img src="images/arrowLeft.svg" alt="Previous" />
+          </motion.button>
+          {/* <Tooltip content="Previous Project" position="top" delay={0.2}>
             <motion.button
               onClick={handlePrev}
               disabled={isTransitioning}
@@ -237,7 +247,7 @@ export default function Projects() {
             >
               <img src="images/arrowLeft.svg" alt="Previous" />
             </motion.button>
-          </Tooltip>
+          </Tooltip> */}
 
           <motion.span
             className="text-sm text-gray-400"
@@ -249,7 +259,17 @@ export default function Projects() {
             {currentIndex + 1}/{total}
           </motion.span>
 
-          <Tooltip content="Next Project" position="top" delay={0.2}>
+          <motion.button
+            onClick={handleNext}
+            disabled={isTransitioning}
+            aria-label="Next project"
+            className="p-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all duration-200 disabled:opacity-50"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img src="images/arrowRight.svg" alt="Next" />
+          </motion.button>
+          {/* <Tooltip content="Next Project" position="top" delay={0.2}>
             <motion.button
               onClick={handleNext}
               disabled={isTransitioning}
@@ -260,7 +280,7 @@ export default function Projects() {
             >
               <img src="images/arrowRight.svg" alt="Next" />
             </motion.button>
-          </Tooltip>
+          </Tooltip> */}
         </div>
       </div>
     </section>
