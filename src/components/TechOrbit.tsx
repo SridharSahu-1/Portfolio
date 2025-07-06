@@ -56,7 +56,7 @@ const TechOrbit = ({ technologies }: TechOrbitProps) => {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="text-white font-bold text-lg"
         >
-          ME
+          Skills
         </motion.div>
       </motion.div>
 

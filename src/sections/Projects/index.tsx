@@ -6,6 +6,7 @@ import { SiRedux, SiFirebase, SiHtml5, SiCss3 } from "react-icons/si";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { projectsList } from "../../constants";
 import Macbook from "../../components/Macbook";
+import ToolTip from "../../components/ToolTip";
 
 const iconMap = {
   React: <FaReact size={20} />,
@@ -14,7 +15,7 @@ const iconMap = {
   HTML: <SiHtml5 size={20} />,
   CSS: <SiCss3 size={20} />,
   Github: <FaGithub size={20} />,
-  ExternalLink: <HiOutlineExternalLink size={20} />,
+  ExternalLink: <HiOutlineExternalLink size={26} />,
 };
 
 export default function Projects() {
@@ -72,8 +73,8 @@ export default function Projects() {
           </motion.div>
         </div>
 
-        <div className="grid h-[85vh] grid-cols-1 lg:grid-cols-2 gap-2">
-          <div className="h-full p-8 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[32px] shadow-2xl flex flex-col justify-between transition-all duration-500 hover:border-purple-400/60 overflow-hidden">
+        <div className="grid h-full grid-cols-1 lg:grid-cols-2 gap-2">
+          <div className="h-full p-8 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[32px] shadow-2xl flex flex-col justify-between transition-all duration-500 hover:border-purple-400/60 ">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -92,6 +93,20 @@ export default function Projects() {
                   >
                     {project.projectName}
                   </motion.h2>
+                  <ToolTip
+                    content="View Live Project"
+                    position="bottom"
+                    delay={0.3}
+                  >
+                    <a
+                      href={project.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full hover:scale-110 transition-all duration-300"
+                    >
+                      {iconMap.ExternalLink}
+                    </a>
+                  </ToolTip>
                 </div>
                 <ul className="space-y-4">
                   {project.projectDescription.map((line, idx) => (
@@ -100,7 +115,7 @@ export default function Projects() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + idx * 0.1, duration: 0.4 }}
-                      className="flex items-start p-3 rounded-xl hover:bg-white/25 transition-all duration-300"
+                      className="flex items-start p-3 rounded-xl hover:bg-white/25 hover:scale-105 transition-all duration-300"
                     >
                       <div className="mt-1 w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex-shrink-0 animate-pulse" />
                       <p className="ml-3 text-gray-200 leading-relaxed text-sm md:text-base">
@@ -133,22 +148,22 @@ export default function Projects() {
                         transition={{ delay: 1, duration: 0.3 }}
                         className="w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                       >
-                        <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200">
+                        {/* <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200">
                           {iconMap[tag] || (
                             <span className="text-indigo-200 text-sm">
                               {tag}
                             </span>
                           )}
-                        </div>
-                        {/* <ToolTip content={tag} position="top" delay={0.3}>
-                          <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200">
+                        </div> */}
+                        <ToolTip content={tag} position="top" delay={0.3}>
+                          <div className="w-full h-full flex items-center justify-center rounded-full transition-colors duration-200 cursor-pointer">
                             {iconMap[tag] || (
                               <span className="text-indigo-200 text-sm">
                                 {tag}
                               </span>
                             )}
                           </div>
-                        </ToolTip> */}
+                        </ToolTip>
                       </motion.div>
                     ))}
                   </div>
@@ -159,23 +174,22 @@ export default function Projects() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.7, duration: 0.3 }}
                 >
-                  <span>Links: </span>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:scale-110 transition-all duration-300"
+                  <span>Code: </span>
+                  <ToolTip
+                    content="View Source Code"
+                    position="right"
+                    delay={0.3}
                   >
-                    {iconMap.Github}
-                  </a>
-                  <a
-                    href={project.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:scale-110 transition-all duration-300"
-                  >
-                    {iconMap.ExternalLink}
-                  </a>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full hover:scale-110 transition-all duration-300"
+                    >
+                      {iconMap.Github}
+                    </a>
+                  </ToolTip>
+
                   {/* <Tooltip
                     content="View Source Code"
                     position="right"
@@ -210,7 +224,7 @@ export default function Projects() {
           </div>
 
           {/* Macbook Preview */}
-          <div className="flex flex-col justify-center items-center h-dvh md:h-full overflow-auto pt-20 pb-5">
+          <div className="flex flex-col justify-center items-center h-dvh md:h-full w-full">
             <Macbook projectUrl={project.projectUrl} />
             <motion.span
               className="mt-2 text-gray-400"
@@ -226,17 +240,7 @@ export default function Projects() {
 
         {/* Navigation Controls */}
         <div className="flex items-center justify-center space-x-4 mt-6">
-          <motion.button
-            onClick={handlePrev}
-            disabled={isTransitioning}
-            aria-label="Previous project"
-            className="p-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all duration-200 disabled:opacity-50"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <img src="images/arrowLeft.svg" alt="Previous" />
-          </motion.button>
-          {/* <Tooltip content="Previous Project" position="top" delay={0.2}>
+          <ToolTip content="Previous Project" position="top" delay={0.2}>
             <motion.button
               onClick={handlePrev}
               disabled={isTransitioning}
@@ -247,7 +251,7 @@ export default function Projects() {
             >
               <img src="images/arrowLeft.svg" alt="Previous" />
             </motion.button>
-          </Tooltip> */}
+          </ToolTip>
 
           <motion.span
             className="text-sm text-gray-400"
@@ -259,17 +263,7 @@ export default function Projects() {
             {currentIndex + 1}/{total}
           </motion.span>
 
-          <motion.button
-            onClick={handleNext}
-            disabled={isTransitioning}
-            aria-label="Next project"
-            className="p-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all duration-200 disabled:opacity-50"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <img src="images/arrowRight.svg" alt="Next" />
-          </motion.button>
-          {/* <Tooltip content="Next Project" position="top" delay={0.2}>
+          <ToolTip content="Next Project" position="top" delay={0.2}>
             <motion.button
               onClick={handleNext}
               disabled={isTransitioning}
@@ -280,7 +274,7 @@ export default function Projects() {
             >
               <img src="images/arrowRight.svg" alt="Next" />
             </motion.button>
-          </Tooltip> */}
+          </ToolTip>
         </div>
       </div>
     </section>

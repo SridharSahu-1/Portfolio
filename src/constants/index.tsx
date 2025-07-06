@@ -111,16 +111,17 @@ const techStacks = [
     gradient: "from-purple-500/20 to-pink-500/20",
     borderColor: "border-purple-400/30",
     technologies: [
-      { name: "HTML", level: 95 },
-      { name: "CSS", level: 90 },
-      { name: "Tailwind CSS", level: 92 },
-      { name: "Bootstrap", level: 85 },
-      { name: "JavaScript", level: 88 },
-      { name: "TypeScript", level: 82 },
-      { name: "React", level: 90 },
-      { name: "Redux", level: 78 },
-      { name: "Redux Saga", level: 70 },
-      { name: "Next.js", level: 75 },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "Tailwind CSS" },
+      { name: "Bootstrap" },
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "React" },
+      { name: "Zustand" },
+      { name: "Redux" },
+      { name: "Redux Saga" },
+      { name: "Next.js" },
     ],
   },
   {
@@ -130,11 +131,11 @@ const techStacks = [
     gradient: "from-green-500/20 to-emerald-500/20",
     borderColor: "border-green-400/30",
     technologies: [
-      { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 82 },
-      { name: "MongoDB", level: 78 },
-      { name: "Spring Boot", level: 75 },
-      { name: "RESTful APIs", level: 88 },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "MongoDB" },
+      { name: "Spring Boot" },
+      { name: "RESTful APIs" },
     ],
   },
   {
@@ -144,11 +145,11 @@ const techStacks = [
     gradient: "from-blue-500/20 to-cyan-500/20",
     borderColor: "border-blue-400/30",
     technologies: [
-      { name: "AWS S3", level: 70 },
-      { name: "CloudFront", level: 65 },
-      { name: "Route 53", level: 60 },
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 55 },
+      { name: "AWS S3" },
+      { name: "CloudFront" },
+      { name: "Route 53" },
+      { name: "Git" },
+      { name: "Docker" },
     ],
   },
   {
@@ -157,10 +158,7 @@ const techStacks = [
     color: "from-orange-500 to-red-500",
     gradient: "from-orange-500/20 to-red-500/20",
     borderColor: "border-orange-400/30",
-    technologies: [
-      { name: "Chrome DevTools", level: 85 },
-      { name: "Postman", level: 88 },
-    ],
+    technologies: [{ name: "Chrome DevTools" }, { name: "Postman" }],
   },
   {
     category: "Coding Language",
@@ -168,11 +166,15 @@ const techStacks = [
     color: "from-red-500 to-gray-400",
     gradient: "from-red-500/20 to-black-500/20",
     borderColor: "border-red-400/30",
-    technologies: [
-      { name: "Java", level: 85 },
-      { name: "Python", level: 40 },
-    ],
+    technologies: [{ name: "Java" }, { name: "Python" }],
   },
 ];
 
-export { navItems, projectsList, experiences, links, techStacks, contactMethods };
+export {
+  navItems,
+  projectsList,
+  experiences,
+  links,
+  techStacks,
+  contactMethods,
+};

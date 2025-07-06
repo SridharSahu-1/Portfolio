@@ -13,7 +13,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen relative text-white overflow-hidden py-20"
+      className="min-h-screen relative text-white overflow-hidden py-10"
     >
       <GradientSphere
         sphere1Class={"skills-gradient-sphere skills-sphere-1"}
@@ -66,7 +66,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mb-16"
+          className="mb-16 lg:hidden"
         >
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {techStacks?.map((stack, index) => (
@@ -92,7 +92,7 @@ const Skills = () => {
         </motion.div>
 
         {/* Resume Download Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -112,7 +112,7 @@ const Skills = () => {
               <ResumeDownloadButton />
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

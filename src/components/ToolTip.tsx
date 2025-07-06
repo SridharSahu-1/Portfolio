@@ -66,7 +66,7 @@ export default function ToolTip({
 
   return (
     <div
-      className="relative inline-block"
+      className="relative inline-block max-w-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

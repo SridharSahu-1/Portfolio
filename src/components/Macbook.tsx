@@ -85,7 +85,7 @@ const Model = (props) => {
                       {iframeLoading && (
                         <div className="absolute inset-0 bg-white flex items-center justify-center">
                           <div className="text-gray-600 text-center">
-                            <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 animate-spin mx-auto mb-3"></div>
+                            <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 animate-spin mb-3"></div>
                             <p className="text-xs">Loading content...</p>
                           </div>
                         </div>
@@ -140,11 +140,11 @@ const Model = (props) => {
 
 const Macbook = ({ projectUrl }) => {
   return (
-    <Canvas camera={{ position: [-5, 8, -15], fov: 55 }}>
+    <Canvas camera={{ position: [-5, 10, -15], fov: 55 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Suspense fallback={null}>
-        <group rotation={[0, 3.49, 0]} position={[0, 1, 0]}>
-          <Model projectUrl={projectUrl} scale={1.3} />
+        <group rotation={[0, 3.49, 0]} position={[0, 0, 0]}>
+          <Model projectUrl={projectUrl} scale={1.5} />
         </group>
         <Environment preset="city" />
       </Suspense>
