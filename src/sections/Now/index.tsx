@@ -75,7 +75,7 @@ const Now = () => {
   return (
     <section
       id="now"
-      className="min-h-screen relative text-white overflow-hidden py-10"
+      className="min-h-screen relative text-white overflow-hidden pb-10"
     >
       <GradientSphere
         sphere1Class={"now-gradient-sphere now-sphere-1"}

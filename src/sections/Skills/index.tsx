@@ -9,8 +9,11 @@ const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section id="skills" className="relative text-white overflow-hidden h-full">
-      <div className="relative z-10 min-h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-6">
+    <div
+      id="skills"
+      className="relative text-white overflow-hidden "
+    >
+      <div className="relative z-10 min-h-full flex flex-col items-center  max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +59,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mb-16 lg:hidden"
+          className="mb-4 lg:hidden"
         >
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {techStacks?.map((stack, index) => (
@@ -81,7 +84,7 @@ const Skills = () => {
           />
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
