@@ -73,7 +73,7 @@ export default function Projects() {
           </motion.div>
         </div>
 
-        <div className="grid h-full grid-cols-1 lg:grid-cols-2 gap-2">
+        <div className="grid min-h-[70vh] grow flex-1 grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="h-full p-8 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-[32px] shadow-2xl flex flex-col justify-between transition-all duration-500 hover:border-purple-400/60 ">
             <AnimatePresence mode="wait">
               <motion.div

@@ -1,26 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
-import GradientSphere from "../../components/GradientSphere";
 import TechOrbit from "../../components/TechOrbit";
 import SkillCategory from "../../components/SkillCategory";
-import ResumeDownloadButton from "../../components/ResumeDownloadButton";
 import { techStacks } from "../../constants";
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section
-      id="skills"
-      className="min-h-screen relative text-white overflow-hidden py-10"
-    >
-      <GradientSphere
-        sphere1Class={"skills-gradient-sphere skills-sphere-1"}
-        sphere2Class={"skills-gradient-sphere skills-sphere-2"}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <section id="skills" className="relative text-white overflow-hidden h-full">
+      <div className="relative z-10 min-h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +46,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mb-20 hidden md:block"
+          className="hidden md:block"
         >
           <TechOrbit technologies={techStacks} />
         </motion.div>
@@ -90,29 +80,6 @@ const Skills = () => {
             isActive={true}
           />
         </motion.div>
-
-        {/* Resume Download Section */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="text-center"
-        >
-          <div className="relative p-8 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 backdrop-blur-xl border border-gradient-to-r from-blue-400/30 to-cyan-400/30 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 animate-pulse" />
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">
-                Want to see more details?
-              </h3>
-              <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed mb-6">
-                Download my resume for a comprehensive overview of my
-                experience, projects, and technical skills.
-              </p>
-              <ResumeDownloadButton />
-            </div>
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );

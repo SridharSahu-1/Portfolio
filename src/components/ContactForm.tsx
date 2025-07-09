@@ -31,20 +31,40 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    // e.preventDefault();
+    e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/sridharsahu5555@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+      const data = await response.json();
+      if (response.ok) {
+        setIsSubmitted(true);
+        // show success animation, then reset
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        }, 3000);
+      } else {
+        console.error("Submission failed: ", data);
+        // optionally show error state
+      }
+    } catch (error) {
+      console.error("Form submit error: ", error);
+      // optionally show error state
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -85,85 +105,89 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-6"
-          action="https://formsubmit.co/sridharsahu5555@gmail.com"
-          method="POST"
-        >
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div className="relative">
-            <div className="relative">
-              <User
-                size={20}
-                className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
-                  focusedField === "name" || formData.name
-                    ? "text-purple-400"
-                    : "text-gray-400"
-                }`}
-              />
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("name")}
-                onBlur={() => setFocusedField(null)}
-                required
-                className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:!bg-red/10 transition-all duration-300 backdrop-blur-sm autofill:!bg-yellow-200"
-                placeholder="Your Name"
-              />
-            </div>
+            <User
+              size={20}
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
+                focusedField === "name" || formData.name
+                  ? "text-purple-400"
+                  : "text-gray-400"
+              }`}
+            />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              onFocus={() => setFocusedField("name")}
+              onBlur={() => setFocusedField(null)}
+              required
+              className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              placeholder="Your Name"
+            />
           </div>
 
           {/* Email Field */}
           <div className="relative">
-            <div className="relative">
-              <Mail
-                size={20}
-                className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
-                  focusedField === "email" || formData.email
-                    ? "text-purple-400"
-                    : "text-gray-400"
-                }`}
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("email")}
-                onBlur={() => setFocusedField(null)}
-                required
-                className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                placeholder="your.email@example.com"
-              />
-            </div>
+            <Mail
+              size={20}
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
+                focusedField === "email" || formData.email
+                  ? "text-purple-400"
+                  : "text-gray-400"
+              }`}
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onFocus={() => setFocusedField("email")}
+              onBlur={() => setFocusedField(null)}
+              required
+              className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              placeholder="your.email@example.com"
+            />
           </div>
+
+          {/* Subject Field */}
+          {/* <div className="relative">
+            <input
+              type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              onFocus={() => setFocusedField("subject")}
+              onBlur={() => setFocusedField(null)}
+              required
+              className="w-full pl-4 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+              placeholder="Subject"
+            />
+          </div> */}
 
           {/* Message Field */}
           <div className="relative">
-            <div className="relative">
-              <MessageSquare
-                size={20}
-                className={`absolute left-4 top-4 transition-colors duration-300 ${
-                  focusedField === "message" || formData.message
-                    ? "text-purple-400"
-                    : "text-gray-400"
-                }`}
-              />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                onFocus={() => setFocusedField("message")}
-                onBlur={() => setFocusedField(null)}
-                required
-                rows={10}
-                className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm resize-none"
-                placeholder="Message for me..."
-              />
-            </div>
+            <MessageSquare
+              size={20}
+              className={`absolute left-4 top-4 transition-colors duration-300 ${
+                focusedField === "message" || formData.message
+                  ? "text-purple-400"
+                  : "text-gray-400"
+              }`}
+            />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              onFocus={() => setFocusedField("message")}
+              onBlur={() => setFocusedField(null)}
+              required
+              rows={8}
+              className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm resize-none"
+              placeholder="Message for me..."
+            />
           </div>
 
           {/* Submit Button */}
@@ -186,13 +210,6 @@ const ContactForm = () => {
               </>
             )}
           </motion.button>
-          <input
-            type="hidden"
-            name="_subject"
-            value="Portfolio Contact - New Message"
-          />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="box" />
         </form>
 
         {/* Decorative elements */}
