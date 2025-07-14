@@ -2,6 +2,7 @@ import { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Html, Environment, useGLTF, ContactShadows } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMediaQuery } from "../hooks/useMobile";
 
 const Model = (props: any) => {
   const group = useRef<any>();
@@ -235,13 +236,15 @@ const Model = (props: any) => {
 };
 
 const Macbook = ({ projectUrl }: { projectUrl: string }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <Canvas camera={{ position: [-5, 10, -15], fov: 55 }}>
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       <Suspense fallback={null}>
         <group rotation={[0, 3.49, 0]} position={[0, 0, 0]}>
-          <Model projectUrl={projectUrl} scale={1.5} />
+          <Model projectUrl={projectUrl} scale={isMobile ? 1.1 : 1.5} />
         </group>
         <Environment preset="city" />
       </Suspense>

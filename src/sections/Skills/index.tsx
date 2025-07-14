@@ -13,7 +13,7 @@ const Skills = () => {
       id="skills"
       className="relative text-white overflow-hidden "
     >
-      <div className="relative z-10 min-h-full flex flex-col items-center  max-w-7xl mx-auto px-6">
+      <div className="relative z-10 min-h-full flex flex-col pt-8 items-center  max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}

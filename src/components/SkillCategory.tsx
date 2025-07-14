@@ -44,7 +44,7 @@ const SkillCategory = ({ category, isActive }: SkillCategoryProps) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 items-center justify-center gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 items-center justify-center gap-6">
           {category.technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
