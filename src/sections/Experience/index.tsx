@@ -5,7 +5,7 @@ import { experiences } from "../../constants";
 
 export default function ExperienceCards() {
   return (
-    <section className="h-full md:h-dvh pt-4 text-white relative overflow-scroll" id="experience">
+    <section className="h-full max-w-full md:h-dvh pt-4 text-white relative overflow-scroll" id="experience">
       {/* Floating background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-20 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -35,7 +35,7 @@ export default function ExperienceCards() {
             </span>
           </motion.div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 justify-center">
           {experiences.map((exp, i) => (
             <motion.div
               key={i}

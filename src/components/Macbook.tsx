@@ -237,6 +237,7 @@ const Model = (props: any) => {
 
 const Macbook = ({ projectUrl }: { projectUrl: string }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isDesktop = useMediaQuery("(max-width: 1350px)");
 
   return (
     <Canvas camera={{ position: [-5, 10, -15], fov: 55 }}>
@@ -244,7 +245,10 @@ const Macbook = ({ projectUrl }: { projectUrl: string }) => {
       <ambientLight intensity={0.5} />
       <Suspense fallback={null}>
         <group rotation={[0, 3.49, 0]} position={[0, 0, 0]}>
-          <Model projectUrl={projectUrl} scale={isMobile ? 1.1 : 1.5} />
+          <Model
+            projectUrl={projectUrl}
+            scale={isMobile ? 0.5 : isDesktop ? 1.1 : 1.5}
+          />
         </group>
         <Environment preset="city" />
       </Suspense>

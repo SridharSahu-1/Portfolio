@@ -224,7 +224,7 @@ export default function Projects() {
           </div>
 
           {/* Macbook Preview */}
-          <div className="flex flex-col justify-center items-center h-dvh md:h-full w-full">
+          <div className="hidden md:flex flex-col justify-center items-center h-dvh md:h-full w-full">
             <Macbook projectUrl={project.projectUrl} />
             <motion.span
               className="mt-2 text-gray-400"
